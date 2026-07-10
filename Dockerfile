@@ -5,6 +5,7 @@ RUN npm install
 COPY . . 
 RUN npx ng build --configuration=production
 
+
 FROM nginx:alpine
 RUN rm -rf /usr/share/nginx/html/*
 COPY --from=build /app/dist/*/browser /usr/share/nginx/html
