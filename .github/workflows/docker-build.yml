@@ -1,0 +1,23 @@
+name: Build Docker Image with Native Commands
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  docker-build:
+    name: Build Image
+    runs-on: ubuntu-latest
+    
+    steps:
+      # Step 1: Check out code (This step requires 'uses' to get files onto the runner)
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # Step 2: Build the Docker image using native CLI
+      - name: Run Docker Build
+        run: |
+          docker build . -t demo-app-angular:latest
+          echo "Docker build completed successfully!"
+          docker images
