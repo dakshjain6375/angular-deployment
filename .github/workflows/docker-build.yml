@@ -75,4 +75,7 @@ jobs:
               -p 4200:4200 \
               $REGISTRY/$IMAGE_NAME:$TAG
 
+            sudo docker ps -a
+            echo "Deployment completed successfully!"
+            sudo docker images
           EOF
