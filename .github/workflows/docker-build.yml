@@ -53,16 +53,7 @@ jobs:
             # Clean Docker
             sudo docker system prune -af
             sudo docker volume prune -f
-
-            # Login to GHCR
-            # echo "${{ secrets.GHCR_TOKEN }}" | sudo docker login ghcr.io \
-            #   -u "${{ secrets.GHCR_USERNAME }}" \
-            #   --password-stdin
-
-            echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io \
-                -u "${{ github.actor }}" \
-                --password-stdin
-
+            
             # Pull latest image
             sudo docker pull $REGISTRY/$IMAGE_NAME:$TAG
 
