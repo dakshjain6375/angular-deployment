@@ -67,7 +67,7 @@ jobs:
             # Run new container
             sudo docker run -d \
               --name demo-app-angular \
-              -p 4200:4200 \
+              --network host \
               $REGISTRY/$IMAGE_NAME:$TAG
 
             sudo docker ps -a
